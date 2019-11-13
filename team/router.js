@@ -22,4 +22,15 @@ router.post('/team', (req, res, next) => {
     .catch(next)
 })
 
+router.get('/team/:id', (req, res, next) => {
+    const teamId = req.params.id
+    Team.findByPk(teamId)
+    .then(team => {
+        if (!team) return res.status(404).end();
+        console.log(team.get({plain: true}))
+        res.status(200).send(team)
+    })
+    .catch(next)
+})
+
 module.exports = router
