@@ -1,5 +1,6 @@
 const express = require('express');
-const teamRoute = require('./team/router');
+const teamRouter = require('./team/router');
+const playerRouter = require('./player/router');
 const bodyParser = require('body-parser');
 //const db = require('./db');
 //const Team = require('./team/model')
@@ -7,7 +8,8 @@ const bodyParser = require('body-parser');
 const app =  express();
 
 app.use(bodyParser.json())
-app.use(teamRoute);
+app.use(teamRouter);
+app.use(playerRouter);
 
 const port = process.env.PORT || 4000
 
