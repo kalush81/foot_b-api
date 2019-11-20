@@ -7,6 +7,7 @@ router.get('/city', (req, res) => {
         .then(cities => {
             res.status(200).json(cities);
         } )
+        .catch(err => console.log(err))
 })
 
 module.exports = router
